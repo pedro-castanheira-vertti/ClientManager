@@ -35,7 +35,7 @@ model Apolice {
 model Corretor {
   id          String  @id @default(auto()) @map("_id") @db.ObjectId
   name        String 
-  email       String
+  email       String     @unique
   cpf         String     @unique
   password    String     @unique
 }

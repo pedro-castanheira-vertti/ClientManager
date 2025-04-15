@@ -46,10 +46,10 @@ function RegisterUser() {
                 <input placeholder='Seguradora' type="text" name='seguradora' ref={inputSeguradora} />
                 <select id="tipoSeguro" name="tipoSeguro" ref={inputTipoSeguro} defaultValue="">
                     <option value="" disabled>Tipo do seguro</option>
-                    <option value="automovel">Automóvel</option>
-                    <option value="residencial">Residencial</option>
-                    <option value="empresarial">Empresarial</option>
-                    <option value="resCivil">Responsabilidade Civil</option>
+                    <option value="Automovel">Automóvel</option>
+                    <option value="Residencial">Residencial</option>
+                    <option value="Empresarial">Empresarial</option>
+                    <option value="Responsabilidade Civil">Responsabilidade Civil</option>
                 </select>
 
                 <button type="submit">Criar usuário</button>

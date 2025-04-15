@@ -2,13 +2,27 @@ import { useEffect, useState } from 'react'
 import '../Login/style.css'
 import api from '../../services/api';
 import './style.css'
-import trashIcon from '../../assets/trash.svg'
+import Table from './Table/Table'
 import { useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
+
+//Fazer linha e coluna assim como velog. Usar map
 function Home() {
     const [users, setUsers] = useState([])
     const navigate = useNavigate();
+
+    const [columns] = useState([
+        { label: "ID", field: "id" },
+        { label: "Nome", field: "name" },
+        { label: "Cpf", field: "cpf" },
+        { label: "Idade", field: "age" },
+        { label: "Email", field: "email" },
+        { label: "N°Apólice", field: "apolices[0].numApolice" },
+        { label: "Seguradora", field: "apolices[0].nomeSeguradora" },
+        { label: "Tipo", field: "apolices[0].tipoSeguro" },
+        { label: "Ação", field: "action" }
+    ]);
 
     async function getUsers() {
         const usersFromDB = await api.get('/users')
@@ -41,35 +55,7 @@ function Home() {
                 </button>
             </div>
 
-            <div className='userstable'>
-                {users.map((user) => (
-                    <div key={user.id} className="card">
-                        <div>
-                            <span><span> ID: </span> {user.id} <br /></span>
-                            <span><span>Nome: </span> {user.name} | </span>
-                            <span><span>Cpf: </span> {user.cpf} | </span>
-                            <span><span>Idade: </span> {user.age} | </span>
-                            <span><span>Email: </span>{user.email}<br /><br /></span>
-                            {user.apolices && user.apolices.length > 0 && (
-                                <div>
-                                    {user.apolices.map((apolice) => (
-                                        <div key={apolice.id}>
-                                            <span><span>N° Apólice: </span>{apolice.numApolice} | </span>
-                                            <span><span>Seguradora: </span>{apolice.nomeSeguradora} | </span>
-                                            <span><span>Tipo de Seguro: </span>{apolice.tipoSeguro}</span>
-                                            <br /><br />
-                                        </div>
-                                    ))}
-                                </div>
-                            )}
-                            <span><span>Telefone: </span>{user.phone} </span>
-                        </div>
-                        <button onClick={() => deleteUsers(user.id)}>
-                            <img src={trashIcon} alt="" />
-                        </button>
-                    </div>
-                ))}
-            </div>
+            <Table columns={columns} data={users} onDelete={deleteUsers}></Table>
         </div>
     )
 }

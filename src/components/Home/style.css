@@ -58,15 +58,7 @@ form {
         }
     }
 
-    & button {
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
-    & button:hover {
-        opacity: 0.55;
-    }
+    
 }
 
 .rodape {
@@ -80,5 +72,17 @@ form {
 
     & a:hover {
         color: rgb(206, 206, 206);
+    }
+}
+
+.deleteButton{
+    & button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    & button:hover {
+        opacity: 0.55;
     }
 }
