@@ -42,7 +42,7 @@ form{
     opacity: 0.8;
   }
 
-  & input, #tipoSeguro{
+  & #tipoSeguro{
     border: 1px solid #48456C;
     border-radius: 30px;
     height: 40px;

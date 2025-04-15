@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import '../Login/style.css'
 import { useRef } from 'react';
 import api from '../../services/api';
+import InputField from '../GlobalComponents/InputField/InputField';
 
 function RegisterLogin() {
     // const navigate = useNavigate();
@@ -29,15 +30,18 @@ function RegisterLogin() {
             console.error(error)
         }
     }
+    const inputFields = [
+        { placeholder: 'Nome completo', type: 'text', name: 'name', ref: iName },
+        { placeholder: 'Cpf', type: 'number', name: 'cpf', ref: iCpf },
+        { placeholder: 'Email', type: 'email', name: 'email', ref: iEmail },
+        { placeholder: 'Senha', type: 'password', name: 'senha', ref: iPassword }
+    ]
 
     return (
         <div className='container'>
             <form onSubmit={createCorretor}>
                 <h1>Registrar corretor</h1>
-                <input placeholder='Nome completo' type="text" name='name' ref={iName} />
-                <input placeholder='Cpf' type="number" name='cpf' ref={iCpf} />
-                <input placeholder='Email' type="email" name='email' ref={iEmail} />
-                <input placeholder='Senha' type="password" name='senha' ref={iPassword} />
+                <InputField inputFields={inputFields} />
                 <button type='submit' className='enter' >
                     Entrar
                 </button>
