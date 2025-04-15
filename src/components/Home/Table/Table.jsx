@@ -1,8 +1,8 @@
 import React from 'react'
 import TableRow from './TableRow'
 
-function Table({columns, data, onDelete}){
-    return(
+function Table({ columns, data, onDelete }) {
+    return (
         <table>
             <thead>
                 <tr>
@@ -14,7 +14,7 @@ function Table({columns, data, onDelete}){
                 </tr>
             </thead>
             <tbody>
-                {data.map((user)=> (
+                {data.map((user) => (
                     <TableRow key={user.id} user={user} onDelete={onDelete} />
                 ))}
             </tbody>

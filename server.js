@@ -29,7 +29,7 @@ app.post('/users', async (req, res) => {  //req = requisição, res = resposta
                 apolices: {
                     create: apolices.map(apolice => ({
                         numApolice: apolice.numApolice,
-                        nomeSeguradora: apolice.seguradora,
+                        nomeSeguradora: apolice.nomeSeguradora,
                         tipoSeguro: apolice.tipoSeguro,
                     }))
                 }

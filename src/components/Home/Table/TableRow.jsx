@@ -1,25 +1,38 @@
 import trashIcon from '../../../assets/trash.svg'
+import TableColumn from './TableColumn'
+// import editIcon from '../../../assets/editIcon.png'
+import showIcon from '../../../assets/showIcon.svg'
+import { useNavigate } from 'react-router-dom'
 
 function TableRow({ user, onDelete }) {
+    const Navigate = useNavigate()
+
+    const userProps = [
+        { key: "id" },
+        { key: "name" },
+        { key: "cpf" },
+        { key: "age" },
+        { key: "email" }
+    ]
+
+    function goUserDetails() {
+        Navigate(`/userDetails`)
+    }
+
     return (
         <tr>
-            //Criar componente para cada coluna td
-            
-            <td><div>{user.id}</div></td>
-            <td><div>{user.name}</div></td>
-            <td><div>{user.cpf}</div></td>
-            <td><div>{user.age}</div></td>
-            <td><div>{user.email}</div></td>
-            <td><div>{user.apolices[0]?.numApolice}</div></td>
-            <td><div>{user.apolices[0]?.nomeSeguradora}</div></td>
-            <td><div>{user.apolices[0]?.tipoSeguro}</div></td>
-            <td>
-                <div className="deleteButton">
-                    <button onClick={() => onDelete(user.id)}>
-                        <img src={trashIcon} alt="Deletar Usuário" />
-                    </button>
-                </div>
-            </td>
+            <TableColumn user={user} userProps={userProps}></TableColumn>
+            <div className="buttons">
+                <button onClick={() => onDelete(user.id)}>
+                    <img src={trashIcon} alt="Deletar Usuário" />
+                </button>
+                {/* <button onClick={() => onDelete(user.id)}>
+                    <img src={editIcon} alt="Editar Usuário" />
+                </button> */}
+                <button onClick={goUserDetails}>
+                    <img src={showIcon} alt="Mostrar Usuário" />
+                </button>
+            </div>
         </tr>
     )
 }

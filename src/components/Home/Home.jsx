@@ -4,6 +4,7 @@ import api from '../../services/api';
 import './style.css'
 import Table from './Table/Table'
 import { useNavigate } from 'react-router-dom';
+import BackButton from '../GlobalComponents/BackButton/BackButton';
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -44,19 +45,22 @@ function Home() {
     }
 
     return (
-        <div className='container'>
-            <form>
-                <h1>Usuário cadastrados</h1>
-            </form>
+        <>
+            <BackButton />
+            <div className='container'>
+                <form>
+                    <h1>Usuário cadastrados</h1>
+                </form>
 
-            <div className='createButton'>
-                <button type='button' onClick={goRegisterUser} >
-                    Criar usuário
-                </button>
+                <div className='createButton'>
+                    <button type='button' onClick={goRegisterUser} >
+                        Criar usuário
+                    </button>
+                </div>
+
+                <Table columns={columns} data={users} onDelete={deleteUsers}></Table>
             </div>
-
-            <Table columns={columns} data={users} onDelete={deleteUsers}></Table>
-        </div>
+        </>
     )
 }
 export default Home

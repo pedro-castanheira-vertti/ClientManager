@@ -75,7 +75,7 @@ form {
     }
 }
 
-.deleteButton{
+.buttons{
     & button {
         background-color: transparent;
         border: none;
