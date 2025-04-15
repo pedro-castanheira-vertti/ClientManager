@@ -52,6 +52,7 @@ function RegisterUser() {
         { placeholder: 'Seguradora', type: 'text', name: 'seguradora', ref: inputSeguradora }
     ]
 
+
     return ( //Criar componente de input
         <>
             <BackButton/>

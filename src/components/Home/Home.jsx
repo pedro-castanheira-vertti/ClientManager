@@ -5,6 +5,7 @@ import './style.css'
 import Table from './Table/Table'
 import { useNavigate } from 'react-router-dom';
 import BackButton from '../GlobalComponents/BackButton/BackButton';
+import ModalCreateUser from '../RegisterUser/ModalCreateUser';
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -44,6 +45,8 @@ function Home() {
         navigate(`/registerUser?${query.toString()}`)
     }
 
+    const [openModal, setOpenModal] = useState(false)
+
     return (
         <>
             <BackButton />
@@ -57,6 +60,10 @@ function Home() {
                         Criar usuário
                     </button>
                 </div>
+
+                <button type='button' onClick={() => setOpenModal(true)}>Modal </button>
+                <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)}>
+                </ModalCreateUser>
 
                 <Table columns={columns} data={users} onDelete={deleteUsers}></Table>
             </div>
