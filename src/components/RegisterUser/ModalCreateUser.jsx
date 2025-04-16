@@ -1,5 +1,5 @@
 import React from 'react'
-import './styleModal.css'
+import './ModalCreateUser.css'
 
 
 export default function ModalCreateUser({ isOpen, setModalOpen }) {

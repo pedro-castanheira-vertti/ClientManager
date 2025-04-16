@@ -65,7 +65,7 @@ function Home() {
                 <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)}>
                 </ModalCreateUser>
 
-                <Table columns={columns} data={users} onDelete={deleteUsers}></Table>
+                <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal}></Table>
             </div>
         </>
     )

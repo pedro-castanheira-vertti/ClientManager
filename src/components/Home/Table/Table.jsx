@@ -1,9 +1,10 @@
 import React from 'react'
 import TableRow from './TableRow'
 
-function Table({ columns, data, onDelete }) {
+function Table({ columns, data, onDelete, openModal }) {
+
     return (
-        <table>
+        <table className={openModal ? 'hidde' : ''}>
             <thead>
                 <tr>
                     {columns.map((column) => (

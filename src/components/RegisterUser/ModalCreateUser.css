@@ -1,0 +1,9 @@
+.containerModal {
+    background-color: azure;
+    width: 400px;
+    height: 400px;
+}
+
+.hidde{
+    opacity: 0;
+}
