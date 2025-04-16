@@ -52,10 +52,10 @@ function Home() {
             <BackButton />
             <div className='container'>
                 <form>
-                    <h1>Usuário cadastrados</h1>
+                    <h1>{openModal ? "Cadastrar usuário" : "Usuários cadastrados"}</h1>
                 </form>
 
-                <div className='createButton'>
+                <div className={openModal ? 'hidde' : 'createButton'}>
                     <button type='button' onClick={goRegisterUser} >
                         Criar usuário
                     </button>
