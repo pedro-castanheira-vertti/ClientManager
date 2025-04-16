@@ -4,7 +4,7 @@ function BackButton() {
     return (
         <div className='backButton'>
             <button onClick={() => window.history.back()}>
-                <img src={backIcon} alt="" />
+                {/* <img src={backIcon} alt="" /> */}
             </button>
         </div>
     )

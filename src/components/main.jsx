@@ -4,7 +4,7 @@ import Login from '../components/Pages/Login/Login'
 import RegisterUser from './RegisterUser/RegisterUser'
 import Home from './Pages/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import RegisterLogin from './RegisterUser/RegisterUser'
+import RegisterCorretor from './Pages/RegisterLogin/RegisterCorretor'
 import UserDetails from './Pages/Home/UserDetails/UserDetails'
 import '../styles/global.css'
 
@@ -22,8 +22,8 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path: '/registerLogin',
-    element: <RegisterLogin />
+    path: '/registerCorretor',
+    element: <RegisterCorretor />
   },
   {
     path: '/userDetails',

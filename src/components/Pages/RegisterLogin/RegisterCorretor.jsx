@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import api from '../../../services/api';
 import InputField from '../../GlobalComponents/InputField/InputField';
 
-function RegisterLogin() {
+function RegisterCorretor() {
     // const navigate = useNavigate();
 
     // // function goToHome() {
@@ -38,14 +38,16 @@ function RegisterLogin() {
 
     return (
         <div className='container'>
+            <h1>Registre-se</h1>
             <form onSubmit={createCorretor}>
-                <h1>Registrar corretor</h1>
-                <InputField inputFields={inputFields} />
-                <button type='submit' className='enter' >
-                    Entrar
-                </button>
+                <div className='form-content'>
+                    <InputField inputFields={inputFields} />
+                    <button type='submit' className='enter' >
+                        Entrar
+                    </button>
+                </div>
                 <div className='rodape'>
-                    <p>Já está registrado?</p>
+                    <p>Já possui cadastro?</p>
                     <Link to='/' className='login'>
                         Entrar
                     </Link>
@@ -55,4 +57,4 @@ function RegisterLogin() {
     )
 }
 
-export default RegisterLogin
+export default RegisterCorretor

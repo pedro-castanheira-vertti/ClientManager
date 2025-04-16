@@ -45,7 +45,7 @@ function Login() {
       </form>
       <div className='rodape'>
         <p>Ainda não tem registro?</p>
-        <Link to='/registerLogin' className='register'>
+        <Link to='/registerCorretor' className='register'>
           Registre-se aqui
         </Link>
       </div>
