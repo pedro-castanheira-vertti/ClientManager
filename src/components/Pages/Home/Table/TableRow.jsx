@@ -1,7 +1,6 @@
-import trashIcon from '../../../assets/trash.svg'
+import trashIcon from '../../../../assets/trash.svg'
 import TableColumn from './TableColumn'
-// import editIcon from '../../../assets/editIcon.png'
-import showIcon from '../../../assets/showIcon.svg'
+import showIcon from '../../../../assets/showIcon.svg'
 import { useNavigate } from 'react-router-dom'
 
 function TableRow({ user, onDelete }) {

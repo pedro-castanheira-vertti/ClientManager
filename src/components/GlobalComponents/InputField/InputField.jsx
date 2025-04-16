@@ -1,4 +1,3 @@
-import '../InputField/style.css'
 
 function InputField(inputFields) {
     return (

@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import '../Login/style.css'
 import { useRef } from 'react';
-import api from '../../services/api';
-import InputField from '../GlobalComponents/InputField/InputField';
+import api from '../../../services/api';
+import InputField from '../../GlobalComponents/InputField/InputField';
 
 function RegisterLogin() {
     // const navigate = useNavigate();

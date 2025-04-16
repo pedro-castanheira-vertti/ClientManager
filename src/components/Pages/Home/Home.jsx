@@ -1,18 +1,14 @@
 import { useEffect, useState } from 'react'
-import '../Login/style.css'
-import api from '../../services/api';
-import './style.css'
+import api from '../../../services/api';
 import Table from './Table/Table'
-import { useNavigate } from 'react-router-dom';
-import BackButton from '../GlobalComponents/BackButton/BackButton';
-import ModalCreateUser from '../RegisterUser/ModalCreateUser';
+import BackButton from '../../GlobalComponents/BackButton/BackButton';
+import ModalCreateUser from '../../RegisterUser/ModalCreateUser';
 // import { useNavigate } from 'react-router-dom';
 
 
 //Fazer linha e coluna assim como velog. Usar map
 function Home() {
     const [users, setUsers] = useState([])
-    const navigate = useNavigate();
 
     const [columns] = useState([
         { label: "ID", field: "id" },
@@ -40,10 +36,6 @@ function Home() {
         getUsers()
     }, [])
 
-    function goRegisterUser() {
-        const query = new URLSearchParams()
-        navigate(`/registerUser?${query.toString()}`)
-    }
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -56,16 +48,14 @@ function Home() {
                 </form>
 
                 <div className={openModal ? 'hidde' : 'createButton'}>
-                    <button type='button' onClick={goRegisterUser} >
+                    <button type='button' onClick={() => setOpenModal(true)}>
                         Criar usuário
                     </button>
                 </div>
 
-                <button type='button' onClick={() => setOpenModal(true)}>Modal </button>
-                <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)}>
-                </ModalCreateUser>
+                <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)} />
 
-                <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal}></Table>
+                <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal} />
             </div>
         </>
     )

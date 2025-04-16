@@ -1,12 +1,11 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
-import Login from './Login/Login'
+import Login from '../components/Pages/Login/Login'
 import RegisterUser from './RegisterUser/RegisterUser'
-import Home from './Home/Home'
+import Home from './Pages/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import RegisterLogin from './RegisterLogin/RegisterLogin'
-import UserDetails from './Home/UserDetails/UserDetails'
+import RegisterLogin from './RegisterUser/RegisterUser'
+import UserDetails from './Pages/Home/UserDetails/UserDetails'
 
 const router = createBrowserRouter([
   {

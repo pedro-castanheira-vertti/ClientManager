@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  html{  
+    width: 100%;
+    height: 100%;
+  }
+  
+
+:root {
+    --backgroung-main: linear-gradient(180deg, #363467 0%, rgba(30,29,79, 0.8) 100%)
+}

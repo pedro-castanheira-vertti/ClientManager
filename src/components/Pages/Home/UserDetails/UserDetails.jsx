@@ -1,4 +1,4 @@
-import BackButton from "../../GlobalComponents/BackButton/BackButton";
+import BackButton from "../../../GlobalComponents/BackButton/BackButton";
 
 function UserDetails() {
 

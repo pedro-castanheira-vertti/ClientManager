@@ -1,7 +1,8 @@
 .containerModal {
     background-color: azure;
-    width: 400px;
-    height: 400px;
+    width: 50%;
+    height: 600px;
+    min-height: 60vh;
 }
 
 .hidde{

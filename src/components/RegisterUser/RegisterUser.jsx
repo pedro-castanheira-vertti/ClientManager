@@ -1,8 +1,7 @@
 import { useRef } from 'react'
-import '../Login/style.css'
 import api from '../../services/api'
 import { Link, useNavigate } from 'react-router-dom'
-import BackButton from '../GlobalComponents/BackButton/BackButton'
+import BackButton from '../GlobalComponents/BackButton/BackButton.jsx'
 import InputField from '../GlobalComponents/InputField/InputField'
 
 function RegisterUser() {
@@ -55,7 +54,7 @@ function RegisterUser() {
 
     return ( //Criar componente de input
         <>
-            <BackButton/>
+            <BackButton />
             <div className='container'>
                 <form onSubmit={createUsers}>
                     <h1>Cadastro de usuários</h1>

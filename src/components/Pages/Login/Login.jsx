@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
-import './style.css'
 import axios from 'axios';
 import { useRef } from 'react';
-import InputField from '../GlobalComponents/InputField/InputField';
+import InputField from '../../GlobalComponents/InputField/InputField';
+import '../../../styles/global.css'
 
 function Login() {
   const emailRef = useRef()
