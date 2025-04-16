@@ -6,6 +6,7 @@ import Home from './Pages/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RegisterLogin from './RegisterUser/RegisterUser'
 import UserDetails from './Pages/Home/UserDetails/UserDetails'
+import '../styles/global.css'
 
 const router = createBrowserRouter([
   {

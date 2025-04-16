@@ -2,7 +2,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useRef } from 'react';
 import InputField from '../../GlobalComponents/InputField/InputField';
-import '../../../styles/global.css'
 
 function Login() {
   const emailRef = useRef()
@@ -35,19 +34,22 @@ function Login() {
 
   return (
     <div className='container'>
+      <h1>Login</h1>
       <form onSubmit={handleLogin}>
-        <h1>Login</h1>
-        <InputField inputFields={inputFields} />
-        <button type='submit' className='enter'>
-          Entrar
-        </button>
-        <div className='rodape'>
-          <p>Ainda não tem registro?</p>
-          <Link to='/registerLogin' className='register'>
-            Registre-se aqui
-          </Link>
+        <div className='form-content'>
+          <InputField inputFields={inputFields} />
+          <button type='submit' className='enter'>
+            Entrar
+          </button>
         </div>
       </form>
+      <div className='rodape'>
+        <p>Ainda não tem registro?</p>
+        <Link to='/registerLogin' className='register'>
+          Registre-se aqui
+        </Link>
+      </div>
+
     </div>
   )
 }
