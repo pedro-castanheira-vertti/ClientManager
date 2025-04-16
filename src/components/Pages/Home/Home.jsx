@@ -3,6 +3,7 @@ import api from '../../../services/api';
 import Table from './Table/Table'
 import BackButton from '../../GlobalComponents/BackButton/BackButton';
 import ModalCreateUser from '../../RegisterUser/ModalCreateUser';
+import './styleHome.css'
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -41,21 +42,20 @@ function Home() {
 
     return (
         <>
-            <BackButton />
             <div className='container'>
+                <h1>{openModal ? "Cadastrar usuário" : "Usuários cadastrados"}</h1>
                 <form>
-                    <h1>{openModal ? "Cadastrar usuário" : "Usuários cadastrados"}</h1>
-                </form>
-
-                <div className={openModal ? 'hidde' : 'createButton'}>
-                    <button type='button' onClick={() => setOpenModal(true)}>
+                    <BackButton />
+                    <button className={openModal ? 'hiddde' : 'createButton'} type='button' onClick={() => setOpenModal(true)}>
                         Criar usuário
                     </button>
-                </div>
+                    <div className='line'></div>
+                    <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)} />
 
-                <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)} />
+                    <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal} />
+                </form>
 
-                <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal} />
+
             </div>
         </>
     )

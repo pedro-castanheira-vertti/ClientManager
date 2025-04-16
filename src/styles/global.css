@@ -21,6 +21,8 @@ html {
     height: 100%;
 }
 
+
+
 body {
     width: 100%;
     height: 100%;
@@ -51,7 +53,7 @@ button {
     border-radius: 30px;
     background-color: #8D8AE1;
     height: 8%;
-    width: 80%;
+    width: 90%;
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -63,4 +65,15 @@ button {
 
 button:hover {
     opacity: 0.8;
+}
+
+img{
+    width: 35px;
+    height: 25px;
+}
+
+.line{
+    margin-top: 3%;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.349);
 }
