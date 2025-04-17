@@ -1,5 +1,6 @@
 import api from '../../services/api.js'
 import InputField from '../GlobalComponents/InputField/InputField.jsx'
+import './ModalCreateUser.css'
 
 const RegisterUser = ({ inputFields, setModalOpen }) => {
     const getValue = (fieldName) => {
@@ -34,18 +35,8 @@ const RegisterUser = ({ inputFields, setModalOpen }) => {
             <h1>Cadastro de usuários</h1>
             <InputField inputFields={inputFields} />
 
-            <input
-                placeholder='Seguradora'
-                type="text"
-                name='seguradora'
-                ref={inputFields.find(f => f.name === 'seguradora')?.ref}
-            />
 
-            <select
-                name="tipoSeguro"
-                ref={inputFields.find(f => f.name === 'tipoSeguro')?.ref}
-                defaultValue=""
-            >
+            <select className='input-field' name="tipoSeguro" ref={inputFields.find(f => f.name === 'tipoSeguro')?.ref} defaultValue="">
                 <option value="" disabled>Tipo do seguro</option>
                 <option value="Automovel">Automóvel</option>
                 <option value="Residencial">Residencial</option>

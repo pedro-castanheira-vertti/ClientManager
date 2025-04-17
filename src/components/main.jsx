@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import Login from '../components/Pages/Login/Login'
-import RegisterUser from './RegisterUser/RegisterUser'
+import RegisterUser from './RegisterUser/ModalCreateUser'
 import Home from './Pages/Home/Home'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import RegisterCorretor from './Pages/RegisterLogin/RegisterCorretor'

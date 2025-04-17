@@ -74,6 +74,9 @@ img {
 }
 
 #root {
-    width: 60%;
-    height: 85%;
+    width: 50%;
+    height: 70%;
 }
+
+/* O root é uma div que entorna tudo, então eu posso declarar ele como 100%, e declaro
+o container de cada componente com o tamanho que eu quero */

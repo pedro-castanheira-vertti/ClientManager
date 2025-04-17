@@ -1,6 +1,4 @@
 #root {
-    width: 40% !important;
-    height: 70% !important;
     background-color: var(--background-form);
     border: 1px solid var(--border-color);
     border-radius: 18px;
@@ -36,6 +34,10 @@ h1 {
     height: 14%;
     padding: 4px;
     margin-bottom: 6px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 button {
