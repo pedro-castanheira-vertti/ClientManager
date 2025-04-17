@@ -1,37 +1,68 @@
 #root {
-    width: 70%;
-    height: 80%;
-}
-
-h1 {
-    margin-top: 0;
-}
-
-.container {
-    position: relative;
+    width: 80%;
+    height: 90vh;
+    margin: 0 auto;
 }
 
 form {
+    flex-grow: 1;
+    /* Ocupar todo espaço restante */
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.container-home {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.header-home {
+    margin-top: -1%;
+    padding: 0;
+    display: flex;
     align-items: center;
-}
-
-form button {
-    margin-top: 0;
-}
-
-form table {
-    margin-top: 3%;
-    width: 90%;
-    font-size: 18px;
-    color: #ffffff;
-
+    justify-content: center;
+    margin-bottom: 4%;
 }
 
 .backButton {
     position: absolute;
-    top: 5px;
-    left: -10px;
+    top: 2%;
+    left: 10px;
     cursor: pointer;
+    z-index: 1;
+}
+
+.createButton {
+    margin-bottom: -2%;
+    margin-top: -2%;
+}
+
+.line {
+    margin-top: 0;
+    width: 100%;
+}
+
+.createButton {
+    margin-bottom: -2%;
+}
+
+form table {
+    width: 90%;
+    font-size: 18px;
+    color: #ffffff;
+    flex-grow: 1;
+    overflow: auto;
 }

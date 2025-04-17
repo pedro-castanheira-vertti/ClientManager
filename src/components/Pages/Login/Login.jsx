@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useRef } from 'react';
 import InputField from '../../GlobalComponents/InputField/InputField';
+import './loginStyle.css'
 
 function Login() {
   const emailRef = useRef()
@@ -33,7 +34,7 @@ function Login() {
   ]
 
   return (
-    <div className='container'>
+    <div className='container-login'>
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <div className='form-content'>
@@ -49,7 +50,6 @@ function Login() {
           Registre-se aqui
         </Link>
       </div>
-
     </div>
   )
 }

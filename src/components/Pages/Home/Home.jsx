@@ -42,20 +42,22 @@ function Home() {
 
     return (
         <>
-            <div className='container'>
-                <h1>{openModal ? "Cadastrar usuário" : "Usuários cadastrados"}</h1>
+            <div className='container-home'>
+                <div className='header-home'>
+                    <h1>Cadastrar usuário</h1>
+                </div>
                 <form>
-                    <BackButton />
-                    <button className={openModal ? 'hiddde' : 'createButton'} type='button' onClick={() => setOpenModal(true)}>
-                        Criar usuário
-                    </button>
-                    <div className='line'></div>
-                    <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)} />
+                    <div className='form-content'>
+                        <BackButton className={openModal ? 'hidde' : 'backButton'} />
+                        <button className={openModal ? 'hiddde' : 'createButton'} type='button' onClick={() => setOpenModal(true)}>
+                            Criar usuário
+                        </button>
+                        <div className='line'></div>
+                        <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)} />
 
-                    <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal} />
+                        <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal} />
+                    </div>
                 </form>
-
-
             </div>
         </>
     )

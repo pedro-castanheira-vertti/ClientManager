@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import api from '../../../services/api';
 import InputField from '../../GlobalComponents/InputField/InputField';
+import './styleRegisterCorretor.css'
 
 function RegisterCorretor() {
     // const navigate = useNavigate();
@@ -37,7 +38,7 @@ function RegisterCorretor() {
     ]
 
     return (
-        <div className='container'>
+        <div className='container-register'>
             <h1>Registre-se</h1>
             <form onSubmit={createCorretor}>
                 <div className='form-content'>
