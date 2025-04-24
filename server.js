@@ -140,5 +140,24 @@ app.post('/login', async (req, res) => {
     }
 });
 
+app.get('/filtra/:cpf', async (req, res) => {
+    await prisma.user.findUnique({
+        where: {
+            cpf: req.params.cpf
+        },
+    })
+    res.status(200).json({ message: 'Usuário encontrado com sucesso' })
+})
+
+app.get('/filtra/:seguradora', async (req, res) => {
+    await prisma.user.findMany({
+        where: {
+            apolices: {
+                nomeSeguradora: req.params.seguradora
+            }
+        },
+    })
+    res.status(200).json({ message: 'Usuário encontrado com sucesso' })
+})
 
 app.listen(8080)  //Define a porta para rodar o servidor 
