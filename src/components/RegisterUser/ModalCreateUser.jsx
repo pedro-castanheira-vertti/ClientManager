@@ -10,6 +10,7 @@ export default function ModalCreateUser({ isOpen, setModalOpen }) {
     const inputPhone = useRef()
     const inputApolice = useRef()
     const inputSeguradora = useRef()
+    const inputTipoSeguro = useRef(); 
 
     const inputFields = [
         { placeholder: 'Nome', type: 'text', name: 'nome', ref: inputName },
@@ -18,13 +19,14 @@ export default function ModalCreateUser({ isOpen, setModalOpen }) {
         { placeholder: 'CPF', type: 'text', name: 'cpf', ref: inputCpf },
         { placeholder: 'Telefone', type: 'tel', name: 'telefone', ref: inputPhone },
         { placeholder: 'Apólice', type: 'text', name: 'apolice', ref: inputApolice },
-        { placeholder: 'Seguradora', type: 'text', name: 'seguradora', ref: inputSeguradora }
+        { placeholder: 'Seguradora', type: 'text', name: 'seguradora', ref: inputSeguradora },
+        { placeholder: 'Tipo do seguro', name: 'tipoSeguro', ref: inputTipoSeguro }
     ]
 
     if (isOpen) {
         return (
-            <div className='containerModal'>
-                <div className='modal'>
+            <div className='containerModal' onClick={() => setModalOpen(false)}>
+                <div className='modal' onClick={e => e.stopPropagation()}>
                     <RegisterUser
                         inputFields={inputFields}
                         setModalOpen={setModalOpen}

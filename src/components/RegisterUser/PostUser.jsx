@@ -7,6 +7,8 @@ const RegisterUser = ({ inputFields, setModalOpen }) => {
         return inputFields.find(f => f.name === fieldName)?.ref.current.value
     }
 
+    const tipoSeguroRef = inputFields.find(f => f.name === 'tipoSeguro')?.ref;
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -36,8 +38,8 @@ const RegisterUser = ({ inputFields, setModalOpen }) => {
             <InputField inputFields={inputFields} />
 
 
-            <select className='input-field' name="tipoSeguro" ref={inputFields.find(f => f.name === 'tipoSeguro')?.ref} defaultValue="">
-                <option value="" disabled>Tipo do seguro</option>
+            <select className='input-field' name="tipoSeguro" ref={tipoSeguroRef}>
+                <option value="" disabled select>Tipo do seguro</option>
                 <option value="Automovel">Automóvel</option>
                 <option value="Residencial">Residencial</option>
                 <option value="Empresarial">Empresarial</option>
