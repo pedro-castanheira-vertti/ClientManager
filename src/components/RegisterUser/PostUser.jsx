@@ -1,45 +1,68 @@
+import { useState } from 'react';
 import api from '../../services/api.js'
 import InputField from '../GlobalComponents/InputField/InputField.jsx'
 import './ModalCreateUser.css'
 
-const RegisterUser = ({ inputFields, setModalOpen }) => {
-    const getValue = (fieldName) => {
-        return inputFields.find(f => f.name === fieldName)?.ref.current.value
-    }
+const RegisterUser = ({ closeModal, onUserCreated }) => {
+    const [formData, setFormData] = useState({
+        nome: '',
+        idade: '',
+        email: '',
+        cpf: '',
+        telefone: '',
+        apolice: '',
+        seguradora: '',
+        tipoSeguro: ''
+    });
 
-    const tipoSeguroRef = inputFields.find(f => f.name === 'tipoSeguro')?.ref;
+    const handleChange = (e) => {
+        setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
             await api.post('/users', {
-                name: getValue('nome'),
-                age: getValue('idade'),
-                email: getValue('email'),
-                cpf: getValue('cpf'),
-                phone: getValue('telefone'),
+                name: formData.nome,
+                age: formData.idade,
+                email: formData.email,
+                cpf: formData.cpf,
+                phone: formData.telefone,
                 apolices: [
                     {
-                        numero: getValue('apolice'),
-                        seguradora: getValue('seguradora'),
-                        tipo: getValue('tipoSeguro')
+                        numApolice: formData.apolice,
+                        nomeSeguradora: formData.seguradora,
+                        tipoSeguro: formData.tipoSeguro
                     }
                 ]
             });
             alert('Usuário Criado com sucesso!')
+            onUserCreated();
         } catch (error) {
-            console.error("Erro ao criar usuário: ", error.response ? error.response.data : error);
+            alert('Erro ao criar usuário!');
+            console.error(error.response?.data || error);
         }
     }
+
+    const inputFields = [
+        { placeholder: 'Nome', type: 'text', name: 'nome' },
+        { placeholder: 'Idade', type: 'number', name: 'idade' },
+        { placeholder: 'Email', type: 'email', name: 'email' },
+        { placeholder: 'CPF', type: 'text', name: 'cpf' },
+        { placeholder: 'Telefone', type: 'tel', name: 'telefone' },
+        { placeholder: 'Apólice', type: 'text', name: 'apolice' },
+        { placeholder: 'Seguradora', type: 'text', name: 'seguradora' }
+    ]
+
     return (
         <form onSubmit={handleSubmit}>
             <h1>Cadastro de usuários</h1>
-            <InputField inputFields={inputFields} />
+            <InputField inputFields={inputFields} formData={formData} handleChange={handleChange} />
 
 
-            <select className='input-field' name="tipoSeguro" ref={tipoSeguroRef}>
-                <option value="" disabled select>Tipo do seguro</option>
+            <select className='input-field' name="tipoSeguro" value={formData.tipoSeguro} onChange={handleChange} required>
+                <option value="" disabled>Tipo do seguro</option>
                 <option value="Automovel">Automóvel</option>
                 <option value="Residencial">Residencial</option>
                 <option value="Empresarial">Empresarial</option>
@@ -47,7 +70,7 @@ const RegisterUser = ({ inputFields, setModalOpen }) => {
             </select>
 
             <button type="submit">Cadastrar</button>
-            <button type="button" onClick={() => setModalOpen(false)}>Fechar</button>
+            <button type="button" onClick={closeModal}>Fechar</button>
         </form>
     );
 }

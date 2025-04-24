@@ -4,14 +4,12 @@ import Table from './Table/Table'
 import BackButton from '../../GlobalComponents/BackButton/BackButton';
 import ModalCreateUser from '../../RegisterUser/ModalCreateUser';
 import './styleHome.css'
-// import { useNavigate } from 'react-router-dom';
 
-
-//Fazer linha e coluna assim como velog. Usar map
 function Home() {
     const [users, setUsers] = useState([])
+    const [openModal, setOpenModal] = useState(false);
 
-    const [columns] = useState([
+    const columns = [
         { label: "ID", field: "id" },
         { label: "Nome", field: "name" },
         { label: "Cpf", field: "cpf" },
@@ -21,11 +19,11 @@ function Home() {
         { label: "Seguradora", field: "apolices[0].nomeSeguradora" },
         { label: "Tipo", field: "apolices[0].tipoSeguro" },
         { label: "Ação", field: "action" }
-    ]);
+    ];
 
     async function getUsers() {
-        const usersFromDB = await api.get('/users')
-        setUsers(usersFromDB.data);
+        const response = await api.get('/users')
+        setUsers(response.data);
     }
 
     async function deleteUsers(id) {
@@ -37,27 +35,27 @@ function Home() {
         getUsers()
     }, [])
 
-
-    const [openModal, setOpenModal] = useState(false)
-
     return (
         <>
             <div className='container-home'>
                 <div className='header-home'>
                     <h1>Cadastrar usuário</h1>
                 </div>
-                <form>
-                    <div className='form-content'>
-                        <BackButton className={openModal ? 'hidde' : 'backButton'} />
-                        <button className={openModal ? 'hiddde' : 'createButton'} type='button' onClick={() => setOpenModal(true)}>
+                <div className='form-content'>
+                    {!openModal && <BackButton />}
+                    {!openModal && (
+                        <button className='createButton' onClick={() => setOpenModal(true)}>
                             Criar usuário
                         </button>
-                        <div className='line'></div>
-                        <ModalCreateUser isOpen={openModal} setModalOpen={(isOpen) => setOpenModal(isOpen)} />
-
-                        <Table columns={columns} data={users} onDelete={deleteUsers} openModal={openModal} />
-                    </div>
-                </form>
+                    )}
+                    <div className='line'></div>
+                    <ModalCreateUser
+                        isOpen={openModal}
+                        closeModal={() => setOpenModal(false)}
+                        onUserCreated={getUsers}
+                    />
+                    <Table columns={columns} data={users} onDelete={deleteUsers} />
+                </div>
             </div>
         </>
     )
