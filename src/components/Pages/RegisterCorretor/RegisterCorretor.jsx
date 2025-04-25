@@ -1,10 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import api from '../../../services/api';
-import InputField from '../../GlobalComponents/InputField/InputField';
-import './styleRegisterCorretor.css'
+import InputField from '../../Global/InputField/InputField';
 
-function RegisterLogin() {
+function RegisterCorretor() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -63,4 +62,4 @@ function RegisterLogin() {
     )
 }
 
-export default RegisterLogin
+export default RegisterCorretor

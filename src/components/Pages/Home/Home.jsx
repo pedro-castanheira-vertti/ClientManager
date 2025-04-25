@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
+import Table from '../../Global/Table/Table'
+import ModalCreateUser from '../Home/ModalCreateUser/ModalCreateUser';
+import BackButton from '../../Global/BackButton/BackButton';
 import api from '../../../services/api';
-import Table from './Table/Table'
-import BackButton from '../../GlobalComponents/BackButton/BackButton';
-import ModalCreateUser from '../../RegisterUser/ModalCreateUser';
 
 function Home() {
     const [users, setUsers] = useState([])

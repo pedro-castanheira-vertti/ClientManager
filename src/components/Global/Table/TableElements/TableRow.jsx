@@ -1,7 +1,7 @@
-import trashIcon from '../../../../assets/trash.svg'
-import TableColumn from './TableColumn'
-import showIcon from '../../../../assets/showIcon.svg'
 import { useNavigate } from 'react-router-dom'
+import trashIcon from '../../../../assets/trash.svg'
+import showIcon from '../../../../assets/showIcon.svg'
+import TableColumn from './TableColumn'
 
 function TableRow({ user, onDelete }) {
     const Navigate = useNavigate()
@@ -25,9 +25,6 @@ function TableRow({ user, onDelete }) {
                 <button onClick={() => onDelete(user.id)}>
                     <img src={trashIcon} alt="Deletar Usuário" />
                 </button>
-                {/* <button onClick={() => onDelete(user.id)}>
-                    <img src={editIcon} alt="Editar Usuário" />
-                </button> */}
                 <button onClick={goUserDetails}>
                     <img src={showIcon} alt="Mostrar Usuário" />
                 </button>

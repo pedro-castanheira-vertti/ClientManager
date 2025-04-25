@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import api from '../../services/api.js'
-import InputField from '../GlobalComponents/InputField/InputField.jsx'
-import './ModalCreateUser.css'
+import api from '../../../../../services/api.js'
+import InputField from '../../../../Global/InputField/InputField.jsx'
 
 const CreateUser = ({ closeModal, onUserCreated }) => {
     const [formData, setFormData] = useState({

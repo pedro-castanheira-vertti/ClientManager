@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { useState } from 'react';
-import InputField from '../../GlobalComponents/InputField/InputField';
+import axios from 'axios';
+import InputField from '../../Global/InputField/InputField';
 
 function Login() {
     const [email, setEmail] = useState('');

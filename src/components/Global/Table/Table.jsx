@@ -1,5 +1,5 @@
 import React from 'react'
-import TableRow from './TableRow'
+import TableRow from './TableElements/TableRow'
 
 function Table({ columns, data, onDelete, openModal }) {
 
