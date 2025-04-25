@@ -94,3 +94,38 @@ export async function getUserByCpf(req, res) {
         res.status(500).send('Error fetching user by CPF:' + error.message);
     }
 }
+
+export async function getUsersBySeguradora(req, res){
+    try {
+        await prisma.user.findMany({
+            where: {
+                apolices: {
+                    some: {
+                        seguradora: req.params.seguradora
+                    }
+                }
+            },
+            include: {
+                apolices : true
+            }
+        })
+        res.status(200).json('Users fetched by seguradora successfully');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching users by seguradora:' + error.message);
+    }
+}
+
+export async function deleteUser(req, res) {
+    try {
+        await prisma.user.delete({
+            where: {
+                id: req.params.id
+            }
+        })
+        res.status(200).send('User deleted successfully');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error deleting user: ' + error.message);
+    }
+}
